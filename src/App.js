@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import NavBar from './Components/NavBar/Index';
+import Contador from './Components/Contador/Index';
+import './app.css';
 
 function App() {
+  const [idioma, setIdioma] = useState(true);
+
+  const cambiarIdioma = ()=> idioma? setIdioma(false) : setIdioma(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar cambiarIdioma={cambiarIdioma} idioma={idioma} setIdioma={setIdioma}/>
+      <Contador cambiarIdioma={cambiarIdioma} idioma={idioma} setIdioma={setIdioma}/>
     </div>
   );
 }
